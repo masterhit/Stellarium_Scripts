@@ -1,0 +1,141 @@
+//
+// Name: Ceu Profundo
+// License: GPL 2.0
+// Author: Wandeclayt M.
+// Version: 0.1
+// Shortcut: 
+// Description: Displays regular and semi regular cycles in the sky: mean solar
+// day, sidereal day, tropical year, sidereal and synodic lunar periods.
+
+// SETUP
+LabelMgr.deleteAllLabels();
+core.wait(2);
+GridLinesMgr.setFlagMeridianLine(false);
+GridLinesMgr.setFlagEquatorLine(false);
+GridLinesMgr.setFlagEclipticLine(false);
+//StelMovementMgr.setFlagTracking(false);
+//core.selectObjectByName("Sun", false);
+
+// variables
+zenite = 90;
+sul = 180;
+var color = "#aaaa00";
+var intervalo = 2;
+var rapido = 2880;
+
+// set time
+core.clear("natural");
+core.setTimeRate(0);
+core.moveToAltAzi(89, 180, 3);
+core.wait(2);
+core.setDate("2021-03-20T06:06:00", "local");
+core.wait(2);
+
+core.wait(5);
+
+// go home
+core.setObserverLocation(-45.9, -23.2, 596, 1, "Sao Jose dos Campos", "Earth");
+core.wait(2);
+StelMovementMgr.zoomTo(180, 5);
+
+core.wait(intervalo)
+
+// SOLAR DAY
+// Equinox 2021-03-20 
+// Rise: 06h06m
+// Transit: 12h11m
+// Set: 18h15m
+
+var posicaox = 640;
+var linha1 = 600;
+var linha2 = linha1 + 20;
+var linha3 = linha2 + 40; 
+
+LabelMgr.labelScreen("Planetário Virtual Céu Profundo/MIC", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Relogios Celestes", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+// Acelera Timerate e para no transito
+core.setTimeRate(rapido);
+core.waitFor("2021-03-20T12:07:00", "local");
+core.setTimeRate(0);
+core.wait(intervalo*2);
+
+// Mostra Meridiano
+GridLinesMgr.setFlagMeridianLine(true);
+LandscapeMgr.setFlagCardinalsPoints(true);
+core.wait(intervalo);
+
+// Acelera TimeRate e para no proximo transito
+core.setTimeRate(2880);
+core.waitFor("2021-03-21T12:07:00", "local");
+core.setTimeRate(0);
+core.wait(intervalo*2);
+
+// Exibe legenda "Dia Solar"
+LabelMgr.labelScreen("Dia Solar Médio", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("24h", posicaox, linha3, true, 30, color);
+core.wait(5);
+
+// Limpa legendas e Meridiano
+LabelMgr.deleteAllLabels();
+core.wait(intervalo);
+GridLinesMgr.setFlagMeridianLine(false);
+core.wait(intervalo);
+
+
+// Acelera TimeRate ate anoitecer
+core.setTimeRate(rapido);
+core.waitFor("2021-03-21T18:00:00", "local");
+core.setTimeRate(rapido / 10);
+core.waitFor("2021-03-21T18:40:00", "local");
+core.setTimeRate(rapido / 100);
+core.waitFor("2021-03-21T18:46:00", "local");
+core.wait(0.2);
+core.setTimeRate(0);
+core.wait(0.2)
+core.setDate("2021-03-21T18:46:30", "local");
+core.wait(0.2);
+
+core.wait(intervalo*2);
+
+// Para no transito de Sirius e Liga Meridiano
+GridLinesMgr.setFlagMeridianLine(true);
+core.wait(intervalo*2);
+core.selectObjectByName("Sirius", true);
+core.wait(intervalo*2);
+
+// Acelera relogio e roda 24h
+core.setTimeRate(rapido);
+core.waitFor("2021-03-22T18:00:00", "local");
+core.setTimeRate(rapido / 5);
+core.waitFor("2021-03-22T18:40:00", "local");
+core.setTimeRate(rapido / 100);
+core.waitFor("2021-03-21T18:46:30", "local");
+core.wait(0.1);
+core.setTimeRate(0);
+core.wait(0.1)
+core.setDate("2021-03-22T18:46:30", "local");
+
+// Exibe legenda "Dia Sideral"
+LabelMgr.labelScreen("Dia Sideral", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("23h56m", posicaox, linha3, true, 30, color);
+core.wait(5);
+
+// ESTACOES
+// EQUINOCIO
+// SOLSTICIO DE INVERNO
+// EQUINOCIO
+// SOLSTICIO DE VERAO
+
+// LATITUDES
+// SJC
+// SL
