@@ -116,19 +116,57 @@ core.setTimeRate(rapido);
 core.waitFor("2021-03-22T18:00:00", "local");
 core.setTimeRate(rapido / 5);
 core.waitFor("2021-03-22T18:40:00", "local");
-core.setTimeRate(rapido / 100);
+core.setTimeRate(rapido / 200);
 core.waitFor("2021-03-21T18:46:30", "local");
-core.wait(0.1);
+core.wait(0.5);
 core.setTimeRate(0);
 core.wait(0.1)
 core.setDate("2021-03-22T18:46:30", "local");
+
+// zoom em Sirius
+StelMovementMgr.zoomTo(30,5);
+core.wait(intervalo);
+
 
 // Exibe legenda "Dia Sideral"
 LabelMgr.labelScreen("Dia Sideral", posicaox, linha1, true, 30, color);
 LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
 core.wait(5);
 LabelMgr.labelScreen("23h56m", posicaox, linha3, true, 30, color);
-core.wait(5);
+core.wait(intervalo * 3);
+
+// Limpa legendas e meridiano e Zoom out
+LabelMgr.deleteAllLabels();
+core.selectObjectByName("Sirius", false);
+GridLinesMgr.setFlagMeridianLine(false);
+StelMovementMgr.zoomTo(180,5);
+core.wait(intervalo);
+
+// PASSAGEM MERIDIANA DA LUA
+core.setTimeRate(rapido / 100);
+core.waitFor("2021-03-22T19:14:00", "local");
+core.setTimeRate(0);
+core.setDate("2021-03-22T19:14:00", "local");
+core.wait(intervalo);
+
+// Seleciona Lua
+core.selectObjectByName("Moon", true);
+core.wait(intervalo);
+
+// Exibe Meridiano e Acelera
+GridLinesMgr.setFlagMeridianLine(true);
+core.wait(intervalo);
+core.setTimeRate(rapido);
+core.waitFor("2021-03-23T19:10:00", "local");
+core.setTimeRate(rapido / 100);
+
+// Para 24h depois
+core.waitFor("2021-03-23T19:14:00", "local");
+core.setTimeRate(0);
+core.setDate("2021-03-23T19:14:00", "local");
+
+core.wait(intervalo);
+
 
 // ESTACOES
 // EQUINOCIO
