@@ -1,0 +1,53 @@
+//
+// Name: Um Sol pra cada um
+// License: GPL 2.0
+// Author: Wandeclayt M.
+// Version: 0.1
+// Shortcut: 
+// Description: Explorando a variedade de estrelas na Via Láctea
+//
+
+
+//VARIAVEIS
+zenite = 90;
+sul = 180;
+var color = "#aaaa00";
+var intervalo = 2;
+var rapido = 2880;
+var posicaox = 640;
+var linha1 = 600;
+var linha2 = linha1 + 20;
+var linha3 = linha2 + 40; 
+
+// SETUP
+LabelMgr.deleteAllLabels();
+core.wait(2);
+GridLinesMgr.setFlagMeridianLine(false);
+GridLinesMgr.setFlagEquatorLine(false);
+GridLinesMgr.setFlagEclipticLine(false);
+
+LabelMgr.labelScreen("Planetário Virtual Céu Profundo/MIC", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Um Sol pra cada um", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+
+//Desabilita Atmosfera e Terreno
+LandscapeMgr.setFlagLandscape(false);
+core.wait(2);
+LandscapeMgr.setFlagAtmosphere(false);
+
+
+// Posicao do Observador
+core.setObserverLocation(-45.9, -23.2, 596, 1, "Sao Jose dos Campos", "Earth");
+core.wait(2);
+
+
+StelMovementMgr.setFlagTracking(true);
+core.selectObjectByName("Sun", true);
+
+//Zoom 10 graus em 5 segundos
+StelMovementMgr.zoomTo(2, 5);
