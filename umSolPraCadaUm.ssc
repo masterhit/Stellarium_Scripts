@@ -2,7 +2,7 @@
 // Name: Um Sol pra cada um
 // License: GPL 2.0
 // Author: Wandeclayt M.
-// Version: 0.1b
+// Version: 0.1
 // Shortcut: 
 // Description: 
 //
@@ -25,6 +25,7 @@ core.wait(2);
 GridLinesMgr.setFlagMeridianLine(false); //Desabilita Meridiano
 GridLinesMgr.setFlagEquatorLine(false);  //Desabilita Equador
 GridLinesMgr.setFlagEclipticLine(false); //Desabilita Ecliptica
+ConstellationMgr.setFlagLines(false);    //Desabilita Linhas das Const.
 core.setDiskViewport(true);
 core.clear("natural");
 core.setTimeRate(0);                     //Para o relogio
@@ -37,9 +38,9 @@ core.wait(intervalo);
 //ABERTURA
 LabelMgr.labelScreen("Planetário Virtual Céu Profundo/MIC", posicaox, linha1, true, 30, color);
 LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
-core.wait(5);
+core.wait(intervalo*2);
 LabelMgr.labelScreen("UM SOL PRA CADA UM", posicaox, linha3, true, 30, color);
-core.wait(5);
+core.wait(intervalo*2);
 LabelMgr.deleteAllLabels();
 core.wait(intervalo*2)
 
@@ -67,14 +68,27 @@ core.wait(4);
 
 
 //////////////////////////////////////////////////////////////////////////////
+//                                                                          //
+//                    ROTEIRO DE SESSÃO DE PLANETARIO                       //
+//                                                                          //
+//////////////////////////////////////////////////////////////////////////////
+//
+// 1. O SOL É UMA ESTRELA
+// 2. O QUE É UMA ESTRELA?
+// 3. QUAL A DISTÂNCIA E O TAMANHO DO SOL?
+// 4. QUAL A TEMPERATURA DO SOL?
+// 5. QUAL A ESTRELA MAIS PROXIMA DEPOIS DO SOL?
+// 
+//////////////////////////////////////////////////////////////////////////////
 
 
-//SOBRE O SOL
+//////////////////////////////////////////////////////////////////////////////
+// 3. QUAL A DISTÂNCIA E O TAMANHO DO SOL?
 StelMovementMgr.zoomTo(15, 5);
 core.wait(2);
 LandscapeMgr.setFlagAtmosphere(false);
 core.wait(2);
-LabelMgr.labelScreen("Diâmetro; 1,4 milhões de km", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("Diâmetro: 1,4 milhões de km", posicaox, linha1, true, 30, color);
 LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
 core.wait(5);
 LabelMgr.labelScreen("Distância Média: 149,6 milhões de km", posicaox, linha3, true, 30, color);
@@ -82,3 +96,103 @@ core.wait(5);
 LabelMgr.deleteAllLabels();
 core.wait(intervalo*2)
 
+
+
+//////////////////////////////////////////////////////////////////////////////
+// 5. QUAL A ESTRELA MAIS PROXIMA DEPOIS DO SOL?
+StelMovementMgr.zoomTo(180, 5);
+core.wait(5);
+LandscapeMgr.setFlagAtmosphere(false);
+
+core.selectObjectByName("Proxima", true);
+core.wait(4);
+StelMovementMgr.autoZoomIn(4);
+
+core.wait(6);
+LabelMgr.labelScreen("Proxima Centauri", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 4.24 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+core.wait(4);
+StelMovementMgr.zoomTo(60, 5);
+core.wait(4);
+core.setTimeRate(560);
+core.waitFor("2021-03-24T00:10:00", "local");
+core.setTimeRate(0);
+core.wait(4);
+ConstellationMgr.setFlagLines(true);
+
+core.wait(intervalo*2);
+core.selectObjectByName("Toliman", true);
+core.wait(4);
+StelMovementMgr.autoZoomIn(4);
+
+core.wait(6);
+LabelMgr.labelScreen("Alfa Centauri", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 4.39 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+core.wait(4);
+StelMovementMgr.zoomTo(60, 5);
+core.selectObjectByName("Acrux", true);
+core.wait(4);
+StelMovementMgr.autoZoomIn(4);
+
+core.wait(6);
+LabelMgr.labelScreen("Acrux", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 320 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+core.wait(4);
+StelMovementMgr.zoomTo(60, 5);
+core.selectObjectByName("NGC 4755", true);
+core.wait(4);
+StelMovementMgr.autoZoomIn(4);
+
+core.wait(6);
+LabelMgr.labelScreen("NGC 4755 - Caixinha de Jóias", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 11200 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+core.wait(4);
+StelMovementMgr.zoomTo(0.2, 5);
+
+core.wait(6);
+LabelMgr.labelScreen("NGC 4755 - Caixinha de Jóias", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 11200 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+core.wait(4);
+StelMovementMgr.zoomTo(60, 5);
+core.selectObjectByName("NGC 5139", true);
+core.wait(4);
+StelMovementMgr.autoZoomIn(4);
+
+core.wait(6);
+LabelMgr.labelScreen("NGC 5139 - Omega Centauri", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(5);
+LabelMgr.labelScreen("Distância: 16000 Anos-luz", posicaox, linha3, true, 30, color);
+core.wait(5);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
