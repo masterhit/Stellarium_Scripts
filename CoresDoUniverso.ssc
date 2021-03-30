@@ -4,8 +4,8 @@
 // Author: Wandeclayt M./Yanna Martins-Franco
 // Version: 0.1
 // Shortcut: 
-// Description: 
-//
+// Description: Sessão do Planetário Virtual Céu Profundo/MIC
+// transmitida no dia 30/03/2021
 
 //////////////////////////////////////////////////////////////////////////////
 //VARIAVEIS
@@ -74,22 +74,23 @@ core.wait(2);
 //////////////////////////////////////////////////////////////////////////////
 //
 // 1. CORES NO SISTEMA SOLAR
-//     1.1. MARTE
-//     1.2. JUPITER
-//     1.3. URANO
-//     1.4. NETUNO
+//   1.1. MARTE
+//   1.2. JUPITER
+//   1.3. SATURNO
+//   1.4. URANO
+//   1.5  NETUNO
 // 2. CORES NAS ESTRELAS
-//     2.1. GIGANTES VERMELHAS
-//     2.2. CRUZEIRO DO SUL
+//   2.1. GIGANTES VERMELHAS
+//   2.2. ORION
 // 3. CORES NAS NEBULOSAS
-//     3.1  M16
-//     3.1  Eta Carinae
-//     3.1  M42
+//   3.1  M16
+//   3.1  Eta Carinae
+//   3.1  M42
 // 4. CORES NAS GALAXIAS
-//     4.1. NGC 6240
-//     4.2
-//     4.3
-//     4.4
+//   4.1. NGC 6240
+//   4.2
+//   4.3
+//   4.4
 // 
 //////////////////////////////////////////////////////////////////////////////
 
