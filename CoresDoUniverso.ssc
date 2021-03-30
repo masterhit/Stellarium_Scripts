@@ -7,7 +7,7 @@
 // Description: 
 //
 
-
+//////////////////////////////////////////////////////////////////////////////
 //VARIAVEIS
 var zenite = 90;
 var sul = 180;
@@ -17,8 +17,10 @@ var rapido = 2880;
 var posicaox = 900;
 var linha1 = 600;
 var linha2 = linha1 + 20;
-var linha3 = linha2 + 70; 
+var linha3 = linha2 + 70;
+var linha4 = linha3 + 70; 
 
+//////////////////////////////////////////////////////////////////////////////
 // SETUP
 LabelMgr.deleteAllLabels();
 core.wait(2);
@@ -91,7 +93,15 @@ core.wait(2);
 // 
 //////////////////////////////////////////////////////////////////////////////
 
+//SISTEMA SOLAR
+LabelMgr.labelScreen("AS CORES NO SISTEMA SOLAR", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
 
+
+//MARTE
 StelMovementMgr.setFlagTracking(true);
 core.wait(2);
 core.selectObjectByName("Mars", true);
@@ -100,7 +110,6 @@ StelMovementMgr.autoZoomIn(4);
 core.wait(intervalo*3);
 core.wait(4);
 
-//MARTE
 LabelMgr.labelScreen("Marte", posicaox, linha1, true, 30, color);
 LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
 core.wait(intervalo*2);
@@ -111,6 +120,8 @@ LabelMgr.deleteAllLabels();
 StelMovementMgr.zoomTo(2, 5);
 core.wait(intervalo*2)
 
+
+//JUPITER
 StelMovementMgr.setFlagTracking(true);
 core.wait(2);
 core.selectObjectByName("Jupiter", true);
@@ -118,11 +129,112 @@ core.wait(2);
 StelMovementMgr.autoZoomIn(4);
 core.wait(4);
 
-//JUPITER
 LabelMgr.labelScreen("Jupiter", posicaox, linha1, true, 30, color);
 LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
 core.wait(2);
 LabelMgr.labelScreen("Hidrogênio 86.1% e Hélio 13.8%", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(4);
+//Zoom 10 graus em 5 segundos
+StelMovementMgr.zoomTo(2, 5);
+core.wait(intervalo*2)
+
+//SATURNO
+StelMovementMgr.setFlagTracking(true);
+core.wait(2);
+core.selectObjectByName("Saturn", true);
+core.wait(2);
+StelMovementMgr.autoZoomIn(4);
+core.wait(4);
+
+LabelMgr.labelScreen("Saturno", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(2);
+LabelMgr.labelScreen("Hidrogênio 92.4%, Hélio 7,4%,", posicaox, linha3, true, 30, color);
+LabelMgr.labelScreen("Metano 0.2% e Amônia 0.02%", posicaox, linha4, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(4);
+//Zoom 10 graus em 5 segundos
+StelMovementMgr.zoomTo(2, 5);
+core.wait(intervalo*2)
+
+
+//URANO
+StelMovementMgr.setFlagTracking(true);
+core.wait(2);
+core.selectObjectByName("Uranus", true);
+core.wait(2);
+StelMovementMgr.autoZoomIn(4);
+core.wait(4);
+
+
+LabelMgr.labelScreen("Urano", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(2);
+LabelMgr.labelScreen("Hidrogênio 84%, Hélio 14, Metano 2%", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(4);
+//Zoom 10 graus em 5 segundos
+StelMovementMgr.zoomTo(2, 5);
+core.wait(intervalo*2)
+
+//NETUNO
+StelMovementMgr.setFlagTracking(true);
+core.wait(2);
+core.selectObjectByName("Uranus", true);
+core.wait(2);
+StelMovementMgr.autoZoomIn(4);
+core.wait(4);
+
+
+LabelMgr.labelScreen("Netuno", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(2);
+LabelMgr.labelScreen("Hidrogênio 84%, Hélio 14, Metano 3%", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(4);
+//Zoom 10 graus em 5 segundos
+StelMovementMgr.zoomTo(2, 5);
+core.wait(intervalo*2)
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+//
+//               ESTRELAS
+//
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//ESTRELAS
+LabelMgr.labelScreen("AS CORES NAS ESTRELAS", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+//ORION
+StelMovementMgr.setFlagTracking(true);
+core.wait(2);
+core.selectObjectByName("Ori", true);
+core.wait(2);
+StelMovementMgr.autoZoomIn(4);
+core.wait(4);
+StelMovementMgr.zoomTo(20, 5);
+core.wait(intervalo*2)
+ConstellationMgr.setFlagLines(true);
+
+
+LabelMgr.labelScreen("Órion", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(2);
+ConstellationMgr.setFlagLines(false);
+LabelMgr.labelScreen("", posicaox, linha3, true, 30, color);
 core.wait(intervalo*2);
 LabelMgr.deleteAllLabels();
 core.wait(4);
