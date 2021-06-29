@@ -1,0 +1,96 @@
+// HEADER
+// Name: Agenda Celeste: Julho/2021
+// License: GPL 2.0
+// Author: Wandeclayt M., Mariella Patti.
+// Version: 0.1
+// Website: www.ceuprofundo.com
+//
+
+//////////////////////////////////////////////////////////////////////////////
+//                                                                          //
+//                    ROTEIRO DE SESSÃO DE PLANETARIO                       //
+//                                                                          //
+//////////////////////////////////////////////////////////////////////////////
+//
+// 1. APRESENTACAO
+//     1.1 Mariella
+//     1.2 Wandeclayt
+//     1.3 UNIVAP
+//     1.4 STELLARIUM
+// 2. EFEMERIDES
+//     2.1 Lua
+//     2.2 Vesta
+//    
+//
+//
+//
+
+//////////////////////////////////////////////////////////////////////////////
+//VARIAVEIS
+var zenite = 90;
+var sul = 180;
+var color = "#aaaa00";
+var intervalo = 4;
+var rapido = 2880;
+var posicaox = 0.33 * core.getScreenWidth();
+var linha1 = 0.4 * core.getScreenHeight();
+var linha2 = linha1 + 20;
+var linha3 = linha2 + 70;
+var linha4 = linha3 + 70; 
+
+///////////////////////////////////////////////////////////////////////////////
+
+// SETUP
+LabelMgr.deleteAllLabels();
+core.wait(2);
+GridLinesMgr.setFlagMeridianLine(false); //Desabilita Meridiano
+GridLinesMgr.setFlagEquatorLine(false);  //Desabilita Equador
+GridLinesMgr.setFlagEclipticLine(false); //Desabilita Ecliptica
+ConstellationMgr.setFlagLines(false);    //Desabilita Linhas das Const.
+core.setDiskViewport(true);              //Habilita Mascara
+core.clear("natural");
+core.setTimeRate(0);                     //Para o relogio
+core.setDate("Now", "local");
+core.moveToAltAzi(89,180,3);            //olha para o zenite, sul pra baixo
+core.wait(intervalo);
+StelMovementMgr.zoomTo(190, 5);
+core.wait(intervalo);
+
+//ABERTURA
+LabelMgr.labelScreen("Planetário Virtual Céu Profundo", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.labelScreen(" ", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+
+//APRESENTACAO
+LabelMgr.labelScreen("apresentação", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo);
+LabelMgr.labelScreen("Wandeclayt M & Mariella Patti", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+//APRESENTACAO
+LabelMgr.labelScreen("STELLARIUM", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo);
+LabelMgr.labelScreen("www.stellarium.org", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+//APRESENTACAO
+LabelMgr.labelScreen("Efemérides - Julho 2021", posicaox, linha1, true, 30, color);
+LabelMgr.labelScreen("___________________________________", posicaox, linha2, true, 30, color);
+core.wait(intervalo);
+LabelMgr.labelScreen("", posicaox, linha3, true, 30, color);
+core.wait(intervalo*2);
+LabelMgr.deleteAllLabels();
+core.wait(intervalo*2)
+
+//
