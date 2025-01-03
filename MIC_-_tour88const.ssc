@@ -1,0 +1,113 @@
+// title: A Volta ao Mundo em 88 Constelacoes
+// author: Wandeclayt M./Projeto Ceu Profundo
+// website: www.ceuprofundo.com
+// mail: socialceuprofundo[at]gmail.com
+// license: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+
+// variables
+var short = 1;
+var pause = 3;
+var long = 6;
+var veryLong = 10;
+var xText= core.getScreenWidth()/2;
+var yText = core.getScreenHeight()*0.8;
+var shift = 50;
+var autoDelete = 2750;
+var planets = ["Sun", "Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+var zodiac = ["Pisces","Aries","Taurus","Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpius", "Sagitarius", "Capricornus", "Aquarius"]
+core.output(xText);
+core.output(yText);
+
+// functions
+function resetConstellations()
+{
+ConstellationMgr.setFlagArt(false);
+ConstellationMgr.setFlagLines(false);
+ConstellationMgr.setFlagLabels(false);
+core.output("constellation reset");
+core.wait(long)
+}
+
+function setPlanetariumMode()
+{
+core.setTimeRate(0);
+// visao de disco
+core.setDiskViewport(true);
+StelMovementMgr.deselection();
+// rotulos atrativos (importante no modo planetario!)
+core.setFlagGravityLabels(true);
+core.wait(short);
+LandscapeMgr.setFlagAtmosphere(true);
+LandscapeMgr.setFlagCardinalPoints(true);
+StelMovementMgr.setEquatorialMount(false);
+core.wait(pause);
+StelMovementMgr.lookZenith(long);
+core.wait(pause);
+StelMovementMgr.zoomTo(180,long);
+core.wait(long);
+}
+
+// config
+
+ConstellationMgr.setFlagIsolateSelected(true);
+LandscapeMgr.setFlagLandscape(true);
+
+resetConstellations();
+setPlanetariumMode();
+
+core.setTimeRate(0);
+core.setDate("now");
+core.setObserverLocation(-45.9, -23.22, 630, long, "MIC, Sao Jose dos Campos", "Earth");
+core.wait(pause);
+
+// welcome screen
+var welcome = ["Projeto Céu Profundo", "Museu Interativo de Ciências", "apresentam", "A Volta ao Mundo", "em 88 Constelações" ]
+LabelMgr.deleteAllLabels();
+core.output("welcome");
+for (i=0; i<welcome.length; i++)
+{
+LabelMgr.labelScreen(welcome[i], xText - shift, yText, true, 13, "#888833", true, autoDelete);
+core.wait(long)
+}
+
+// 01 - DAILY MOTION / MOVIMENTO DIURNO
+// accelerated daily motion / movimento diario acelerado
+
+core.output("comecou");
+for (i=0; i<1440; i++)
+{
+//dateTime = core.getDate()
+core.setDate("+ 4 minutes");
+core.wait(0.05);
+}
+
+core.output("fim do dia");
+
+
+//core.output("time ramp");
+//core.setTimeRate(2200);
+core.wait(veryLong);
+
+
+
+//toggle atmosphere off / desabilita atmosfera
+LandscapeMgr.setFlagAtmosphere(false);
+LandscapeMgr.setFlagLandscape(false);
+LandscapeMgr.setFlagCardinalPoints(false);
+core.wait(veryLong);
+
+core.selectObjectByName("Mercury", true);
+StelMovementMgr.setEquatorialMount(true);
+core.moveToSelectedObject(pause);
+core.wait(pause);
+StelMovementMgr.zoomTo(10, pause);
+core.setTimeRate(43200);
+
+
+for (i=0; i<planets.length; i++)
+{
+    core.output(planets[i]);
+    core.wait(pause);
+}
+
+core.output("good bye");
