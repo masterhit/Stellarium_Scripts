@@ -1,0 +1,20 @@
+//author: Wandeclayt M./@ceuprofundo
+//description: Automates Screenshot generation for comet postions in a given time window.
+//license: GPL 2.0
+
+//SETUP
+//location list:
+//var location = [sao jose dos campos, recife, fortaleza, brasilia, porto alegre, sao luis, campo grande] 
+
+//set location:
+
+//set time:
+
+//set field of view:
+
+//look west
+
+//iterate:
+//mark comet position, increase date
+MarkerMgr.markerObject("C/2024 G3", true, "cross", "#880088",6.f, false, 0) 
+//save screenshot
